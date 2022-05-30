@@ -1,13 +1,13 @@
-package com.app.learcod.crud.model;
+package com.app.learcod.crud.controller.dto;
 
-import javax.persistence.*;
+import com.app.learcod.crud.model.Student;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class StudentDTO {
+
+    @JsonProperty
     private Long id;
-    @Column
+    @JsonProperty
     private Long registration;
     //@ManyToOne
     //private User user;
@@ -17,11 +17,11 @@ public class Student {
 //        this.user = user;
 //    }
 
-    public Student(Long registration) {
+    public StudentDTO(Long registration) {
         this.registration = registration;
     }
 
-    public Student() {
+    public StudentDTO() {
     }
 
     public Long getId() {
@@ -43,4 +43,11 @@ public class Student {
     //public User getUser() { return user; }
 
     //public void setUser(User user) { this.user = user; }
+
+    public Student toConverterStudentDTO() {
+        Student student = new Student();
+        student.setRegistration(this.registration);
+        return student;
+    }
+
 }
