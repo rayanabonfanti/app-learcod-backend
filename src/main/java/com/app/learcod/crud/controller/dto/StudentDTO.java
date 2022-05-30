@@ -1,6 +1,7 @@
 package com.app.learcod.crud.controller.dto;
 
 import com.app.learcod.crud.model.Student;
+import com.app.learcod.crud.model.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StudentDTO {
@@ -9,13 +10,13 @@ public class StudentDTO {
     private Long id;
     @JsonProperty
     private Long registration;
-    //@ManyToOne
-    //private User user;
+    @JsonProperty
+    private User user;
 
-//    public Student(Long registration, User user) {
-//        this.registration = registration;
-//        this.user = user;
-//    }
+    public StudentDTO(Long registration, User user) {
+        this.registration = registration;
+        this.user = user;
+    }
 
     public StudentDTO(Long registration) {
         this.registration = registration;

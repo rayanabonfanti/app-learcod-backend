@@ -9,13 +9,13 @@ public class Student {
     private Long id;
     @Column
     private Long registration;
-    //@ManyToOne
-    //private User user;
+    @ManyToOne
+    private User user;
 
-//    public Student(Long registration, User user) {
-//        this.registration = registration;
-//        this.user = user;
-//    }
+    public Student(Long registration, User user) {
+        this.registration = registration;
+        this.user = user;
+    }
 
     public Student(Long registration) {
         this.registration = registration;
@@ -40,7 +40,7 @@ public class Student {
         this.registration = registration;
     }
 
-    //public User getUser() { return user; }
+    public User getUser() { return user; }
 
-    //public void setUser(User user) { this.user = user; }
+    public void setUser(User user) { this.user = user; }
 }
